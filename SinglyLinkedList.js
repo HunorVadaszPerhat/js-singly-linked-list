@@ -143,7 +143,7 @@ class SinglyLinkedList {
     } 
 
     // insert a node at a specific position
-    inert(index, val) {
+    insert(index, val) {
         // if the index is less than zero or greater than the length, return false
         if (index < 0 || index > this.length) return false;
         // if the index is the same as the length, push a new node to the end of the list
@@ -163,6 +163,25 @@ class SinglyLinkedList {
         this.length++;
         // return true
         return true;
+    }
+
+    // remove a node at a specific position
+    remove(index) {
+        // if the index is less than zero or greater than the length, return undefined
+        if (index < 0 || index >= this.length) return undefined;
+        // if the index is the same as the length - 1, pop
+        if (index === this.length - 1) return this.pop();
+        // if the index is 0, shift
+        if (index === 0) return this.shift();
+        // get the node at the index - 1
+        var previousNode = this.get(index - 1);
+        // set the next property on that node to be the next of the next node
+        var removed = previousNode.next;
+        previousNode.next = removed.next;
+        // decrement the length
+        this.length--;
+        // return the value of the node removed
+        return removed;
     }
 
 
