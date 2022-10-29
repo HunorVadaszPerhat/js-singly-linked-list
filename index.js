@@ -1,4 +1,12 @@
-import Node from './Node';
+// Node class structure
+class Node {
+    constructor(val) {
+        // value of the node
+        this.val = val;
+        // reference to the next node
+        this.next = null;
+    }
+}
 
 // SinglyLinkedList class structure
 class SinglyLinkedList {
@@ -187,4 +195,8 @@ class SinglyLinkedList {
 
 }
 
-export default SinglyLinkedList;
+let list = new SinglyLinkedList();
+list.push("Hello");
+list.push("Goodbye");
+list.push("!");
+list.traverse();
